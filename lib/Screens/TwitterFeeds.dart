@@ -26,20 +26,24 @@ class _TwitterFeedsState extends State<TwitterFeeds> {
 
       body: ListView.builder(
           itemBuilder: (context, index){
-            return new Card(
-              elevation: 10,
+            return Padding(
+              padding: EdgeInsets.all(5),
+              child: new Card(
+                elevation: 10,
 
-              child: new Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-
-
-                  _cardHeader(),
-                  _cardBody(),
-                  _cardFooter(),
+                child: new Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
 
 
-                ],
+                    _cardHeader(),
+                    _cardBody(),
+                    _drawLine(),
+                    _cardFooter(),
+
+
+                  ],
+                ),
               ),
             );
 
@@ -107,7 +111,7 @@ class _TwitterFeedsState extends State<TwitterFeeds> {
         child: new Text("In This News App you can find all news around the world,"
             " and you should know what happen around the world",
           textAlign: TextAlign.left,
-          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400,color: Colors.grey.shade900),
         ),
       );
   }
@@ -149,5 +153,15 @@ class _TwitterFeedsState extends State<TwitterFeeds> {
 
           ],
         );
+  }
+
+
+  Widget _drawLine(){
+
+    return new Container(
+      height: 1,
+      color: Colors.grey.shade300,
+      margin: EdgeInsets.only(top: 16),
+    );
   }
 }

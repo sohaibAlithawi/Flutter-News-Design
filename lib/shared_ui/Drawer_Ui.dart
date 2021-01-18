@@ -4,6 +4,8 @@ import 'package:flutter_app_news/Screens/HeadLine_Screen.dart';
 import 'package:flutter_app_news/Screens/TwitterFeeds.dart';
 import 'package:flutter_app_news/Screens/home_screen.dart';
 import 'NavMenuItem.dart';
+import 'package:flutter_app_news/Screens/Instagram Feeds.dart';
+import 'package:flutter_app_news/Screens/Facebook_Feeds.dart';
 class DrawerUi extends StatefulWidget {
   @override
   _DrawerUiState createState() => _DrawerUiState();
@@ -17,12 +19,9 @@ class _DrawerUiState extends State<DrawerUi> {
 
     NavMenuItem("Explore", () => home_screen()),
     NavMenuItem("HeadLine News", () => HeadLineScreen()),
-    NavMenuItem("ReadLater", () => home_screen()),
-    NavMenuItem("Videos", () => HeadLineScreen()),
-    NavMenuItem("Photos", () => home_screen()),
-    NavMenuItem("Settings", () => home_screen()),
-    NavMenuItem("Logout", () => HeadLineScreen()),
     NavMenuItem("Twitter Feeds", () => TwitterFeeds()),
+    NavMenuItem("Instagram Feeds", () => Instagram_Feeds()),
+    NavMenuItem("Facebook Feeds", () => Facebook_Feeds()),
 
 
   ];
@@ -32,11 +31,10 @@ class _DrawerUiState extends State<DrawerUi> {
       Icons.explore,
       Icons.view_headline,
       Icons.mark_chat_read_outlined,
-      Icons.ondemand_video_sharp,
-      Icons.photo_sharp,
-      Icons.settings,
-      Icons.logout,
-      Icons.logout,
+      Icons.photo_album,
+      Icons.photo_album,
+
+
 
 
   ];
@@ -56,7 +54,7 @@ class _DrawerUiState extends State<DrawerUi> {
               trailing: Icon(Icons.navigate_next,size: 20,),
 
               onTap: (){
-
+                Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context){
 
                   return NavigationMenu[index].destination();
@@ -80,13 +78,6 @@ class _DrawerUiState extends State<DrawerUi> {
     );
   }
 
-  Widget Drawer_Header(){
-
-    return DrawerHeader(
-      margin: EdgeInsets.all(10),
-        child: Text("Options")
-
-    );
-
+  
   }
-}
+

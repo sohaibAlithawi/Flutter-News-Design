@@ -7,8 +7,13 @@ class home_screen extends StatefulWidget {
   @override
   _home_screenState createState() => _home_screenState();
 }
-
+enum PopUpMenu{
+  HELP,ABOUT,CONTACT,SETTINGS
+}
 class _home_screenState extends State<home_screen> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -32,7 +37,7 @@ class _home_screenState extends State<home_screen> {
               ]),
               actions: <Widget>[
                 new IconButton(icon: Icon(Icons.search), onPressed: () {}),
-                new IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
+                _PopUpMneu(context)
               ],
             ),
             body: TabBarView(children: <Widget>[
@@ -43,4 +48,38 @@ class _home_screenState extends State<home_screen> {
       ),
     );
   }
+
+ Widget _PopUpMneu(BuildContext context) {
+
+    return PopupMenuButton<PopUpMenu>(itemBuilder: (context){
+
+      return[
+
+        PopupMenuItem<PopUpMenu>(
+          value: PopUpMenu.ABOUT,
+          child:  Text("ABOUT"),
+        ),
+
+        PopupMenuItem<PopUpMenu>(
+          value: PopUpMenu.CONTACT,
+          child: Text("CONTACT"),
+        ),
+
+        PopupMenuItem<PopUpMenu>(
+          value: PopUpMenu.SETTINGS,
+          child:Text("SETTINGS"),
+        ),
+
+
+        PopupMenuItem<PopUpMenu>(
+          value: PopUpMenu.HELP,
+          child: Text("Help", textAlign: TextAlign.center,),
+        ),
+
+      ];
+
+    });
+
+
+ }
 }
